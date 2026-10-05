@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "Markdown Renderer",
+  "version": "1.0.0",
+  "description": "Render a local markdown file for easy reading.",
+  "host_permissions": ["file:///*"],
+  "action": { "default_title": "Open Markdown Renderer" },
+  "background": { "service_worker": "background.js" }
+}

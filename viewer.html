@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Markdown Renderer</title>
+  <link rel="stylesheet" href="lib/hljs-github.min.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="lib/hljs-github-dark.min.css" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="viewer.css">
+</head>
+<body>
+  <header>
+    <button id="menu" type="button" title="Outline" aria-label="Outline" aria-expanded="false" disabled>&#9776;</button>
+    <nav id="toc" hidden></nav>
+    <input id="path" type="text" placeholder="D:\docs\README.md" autofocus>
+    <button id="browse" type="button">Browse…</button>
+    <button id="render">Render</button>
+  </header>
+  <p id="error" hidden></p>
+  <article id="output"></article>
+  <script src="lib/marked.min.js"></script>
+  <script src="lib/highlight.min.js"></script>
+  <script src="viewer.js"></script>
+</body>
+</html>
