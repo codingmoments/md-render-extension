@@ -3,7 +3,11 @@
   "name": "Markdown Renderer",
   "version": "1.0.0",
   "description": "Render a local markdown file for easy reading.",
+  "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
   "host_permissions": ["file:///*"],
-  "action": { "default_title": "Open Markdown Renderer" },
+  "action": {
+    "default_title": "Open Markdown Renderer",
+    "default_icon": { "16": "icons/icon16.png", "48": "icons/icon48.png" }
+  },
   "background": { "service_worker": "background.js" }
 }
