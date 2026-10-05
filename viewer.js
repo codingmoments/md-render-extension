@@ -50,12 +50,17 @@ function loadRelativeImages(fragment, baseUrl) {
   });
 }
 
+// DOMPurify's defaults already drop scripts, event handlers and iframes. Also drop
+// forms and styles; <input> stays allowed for GFM task-list checkboxes.
+const PURIFY_OPTIONS = { FORBID_TAGS: ["form", "button", "textarea", "select", "style"] };
+
 async function show(name, loadText, baseUrl) {
   error.hidden = true;
   try {
     // Parse into a template first so images don't start loading from wrong URLs.
+    // Raw HTML in the markdown passes through marked untouched, so sanitize it.
     const template = document.createElement("template");
-    template.innerHTML = marked.parse(await loadText());
+    template.innerHTML = DOMPurify.sanitize(marked.parse(await loadText()), PURIFY_OPTIONS);
     loadRelativeImages(template.content, baseUrl);
     output.replaceChildren(template.content);
     // Untagged blocks get their language auto-detected.
